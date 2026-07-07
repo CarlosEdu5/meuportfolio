@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #1f1f1f;
+  background-color: #090909;
   color: #ffffff;
 }
 
@@ -21,7 +21,6 @@ body {
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.95);
   position: fixed;
   top: 0;
   left: 0;
@@ -45,7 +44,7 @@ header {
   text-decoration: none;
 }
 
-#botao-contato {
+#botao-contato {  
   border: 1px solid #fff;
   background-color: #ffffff00;
   color: #fff;
@@ -57,4 +56,40 @@ header {
   text-align: center;
   cursor: pointer;
   margin-left: auto;
+  text-decoration: none;
 }
+
+#menu a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+#menu a:hover {
+  color: #2b00b7;
+}
+
+.container {
+  background-color: #fff;
+  width: 300px;
+  height: 450px;
+  border-radius: 20px;
+  position: absolute;
+  top: 22%;
+  left: 60%; 
+}
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0a0a0f;
+    overflow: hidden;
+  }
+ 
+  canvas {
+    position: fixed;
+    inset: 0;
+    display: block;
+  }
