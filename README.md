@@ -34,11 +34,11 @@ Estou aberto a oportunidades de estágio, jovem aprendiz e posições como desen
 Será um prazer trocar ideias e construir grandes soluções juntos.
 
 <p align="left">
-  <a href="https://wa.me/5511999999999">
+  <a href="https://wa.me/5511964330202">
     <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
 
-  <a href="mailto:seuemail@email.com">
+  <a href="mailto:elcarloseduardo3@gmail.com">
     <img src="https://img.shields.io/badge/E--mail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 </p>
