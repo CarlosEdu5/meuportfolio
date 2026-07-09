@@ -45,4 +45,4 @@ Será um prazer trocar ideias e construir grandes soluções juntos.
 
 ---
 
-Desenvolvido com dedicação utilizando **HTML, CSS e JavaScript**.
+Desenvolvido com dedicação utilizando **HTML, CSS e JavaScript**.# meuportfolio
