@@ -10,7 +10,6 @@
   <body>
     <canvas id="lanterna"></canvas>
     <header>
-
         <div>
             <img id="logo" src="img/logo.svg" alt="Logo do Portfólio" />
         </div>
@@ -21,35 +20,22 @@
             <a href="#about">Sobre</a>
             <a href="#projects">Projetos</a>
             <a href="#experience">Experiências</a>
-            <a href="#contact">Contato</a>
 
-        <a id="botao-contato" class="button" href="https://wa.me/5511964330202" target="_blank" rel="noopener noreferrer">Vamos conversar!</a>
+            <input id="botao-contato" type="button" value="Vamos conversar!" onclick="window.open('https://wa.me/5511964330202', '_blank')" />
       </nav>
     </header>
 
     <main>
       <section id="home">
-        <div class="container">
-            <h1>Olá, eu sou o Elcar</h1>
-            <p>Desenvolvedor Front-End</p>
+        <div>
+          <img  id="eu" src="img/eu.svg" alt="Foto do desenvolvedor" />
         </div>
-
-      </section>
-
-      <section>
-        
-
-      </section>
-
-      <section>
-        
-
+        <div>
+          <input id="botao-projetos" type="button" value="Meus projetos" onclick="window.open('projects.html', '_blank')" />
+          <input id="baixar-cv" type="button" value="Baixar CV" onclick="window.open('cv.pdf', '_blank')" />
+        </div>
       </section>
     </main>
-
-    <footer>
-      
-    </footer>
 
     <script src="js/script.js"></script>
   </body>

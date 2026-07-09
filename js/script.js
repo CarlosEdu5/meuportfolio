@@ -1,60 +1,79 @@
 const canvas = document.getElementById('lanterna');
-    const ctx = canvas.getContext('2d');
- 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
- 
-    // Guarda os últimos pontos por onde o mouse passou.
-    // Cada ponto tem posição e o momento (timestamp) em que foi criado.
-    const pontos = [];
-    const VIDA_MS = 400; // quanto tempo (em milissegundos) cada ponto demora pra sumir
- 
-    document.addEventListener('mousemove', (e) => {
-      if (!sobreLink) {
-        pontos.push({ x: e.clientX, y: e.clientY, criadoEm: performance.now() });
-      }
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Guarda os últimos pontos por onde o mouse passou.
+// Cada ponto tem posição e o momento (timestamp) em que foi criado.
+const pontos = [];
+const VIDA_MS = 400; // quanto tempo (em milissegundos) cada ponto demora pra sumir
+
+// Partículas da explosão (separado do rastro do meteoro)
+let particulas = [];
+let sobreElementoClicavel = false;
+let elementoClicavelAtual = null;
+
+const seletorClicavel = 'a, button, input, textarea, select, summary, [role="button"], [onclick], [tabindex]:not([tabindex="-1"])';
+
+function getElementoClicavelAlvo(target) {
+  if (!(target instanceof Element)) return null;
+  return target.closest(seletorClicavel);
+}
+
+document.addEventListener('mousemove', (e) => {
+  if (!sobreElementoClicavel) {
+    pontos.push({ x: e.clientX, y: e.clientY, criadoEm: performance.now() });
+  }
+});
+
+function explodir(x, y) {
+  const QTD = 30; // quantas partículas saem na explosão
+  for (let i = 0; i < QTD; i++) {
+    const angulo = Math.random() * Math.PI * 2; // direção aleatória (360°)
+    const velocidade = 2 + Math.random() * 4; // velocidade aleatória
+
+    particulas.push({
+      x,
+      y,
+      vx: Math.cos(angulo) * velocidade,
+      vy: Math.sin(angulo) * velocidade,
+      criadoEm: performance.now(),
+      vidaMs: 500 + Math.random() * 300, // cada partícula dura um pouco diferente
+      raio: 1.5 + Math.random() * 2.5
     });
- 
-    // Partículas da explosão (separado do rastro do meteoro)
-    let particulas = [];
-    let sobreLink = false; // controla se o mouse está em cima de algum link
- 
-    function explodir(x, y) {
-      const QTD = 30; // quantas partículas saem na explosão
-      for (let i = 0; i < QTD; i++) {
-        const angulo = Math.random() * Math.PI * 2; // direção aleatória (360°)
-        const velocidade = 2 + Math.random() * 4;    // velocidade aleatória
- 
-        particulas.push({
-          x, y,
-          vx: Math.cos(angulo) * velocidade,
-          vy: Math.sin(angulo) * velocidade,
-          criadoEm: performance.now(),
-          vidaMs: 500 + Math.random() * 300, // cada partícula dura um pouco diferente
-          raio: 1.5 + Math.random() * 2.5
-        });
-      }
-      // some com o rastro normal no momento da explosão, pra ficar mais nítido
-      pontos.length = 0;
-    }
- 
-    // dispara a explosão quando o mouse entra em cima de qualquer link,
-    // e liga/desliga o "sobreLink" pra pausar o rastro nesse período
-    document.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('mouseenter', (e) => {
-        sobreLink = true;
-        explodir(e.clientX, e.clientY);
-      });
-      link.addEventListener('mouseleave', () => {
-        sobreLink = false;
-      });
-    });
- 
-    function draw() {
+  }
+  // some com o rastro normal no momento da explosão, pra ficar mais nítido
+  pontos.length = 0;
+}
+
+function entrarElementoClicavel(event) {
+  const elemento = getElementoClicavelAlvo(event.target);
+  if (!elemento || elemento === elementoClicavelAtual) return;
+
+  elementoClicavelAtual = elemento;
+  sobreElementoClicavel = true;
+  explodir(event.clientX, event.clientY);
+}
+
+function sairElementoClicavel(event) {
+  const proximo = event.relatedTarget;
+  const proximoElemento = getElementoClicavelAlvo(proximo);
+
+  if (proximoElemento && proximoElemento === elementoClicavelAtual) return;
+
+  elementoClicavelAtual = null;
+  sobreElementoClicavel = false;
+}
+
+document.addEventListener('mouseover', entrarElementoClicavel);
+document.addEventListener('mouseout', sairElementoClicavel);
+
+function draw() {
       // Limpa TUDO a cada frame — por isso não fica "pintando" o fundo,
       // só o que a gente desenhar de novo aparece.
       ctx.clearRect(0, 0, canvas.width, canvas.height);
