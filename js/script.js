@@ -99,7 +99,7 @@ function draw() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, raio, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(120, 170, 255, ${alpha})`;
-        ctx.shadowColor = 'rgba(80, 150, 255, 0.8)';
+        ctx.shadowColor = 'rgb(255, 255, 255)';
         ctx.shadowBlur = 15; // dá aquele brilho de meteoro
         ctx.fill();
       }
@@ -122,7 +122,7 @@ function draw() {
         ctx.beginPath();
         ctx.arc(part.x, part.y, part.raio * progresso, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(150, 190, 255, ${progresso})`;
-        ctx.shadowColor = 'rgba(120, 170, 255, 0.9)';
+        ctx.shadowColor = 'rgb(255, 255, 255)';
         ctx.shadowBlur = 12;
         ctx.fill();
       }

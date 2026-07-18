@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -10,32 +10,105 @@
   <body>
     <canvas id="lanterna"></canvas>
     <header>
-        <div>
-            <img id="logo" src="img/logo.svg" alt="Logo do Portfólio" />
-        </div>
+      <div>
+        <img class="logo" src="img/logo.svg" alt="Logo do Portfólio" />
+      </div>
 
-      <nav id="menu">
-   
-            <a href="#home">Início</a>
-            <a href="#about">Sobre</a>
-            <a href="#projects">Projetos</a>
-            <a href="#experience">Experiências</a>
+      <nav class="menu">
+        <a href="#home">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#projects">Projetos</a>
+        <a href="#experience">Experiências</a>
 
-            <input id="botao-contato" type="button" value="Vamos conversar!" onclick="window.open('https://wa.me/5511964330202', '_blank')" />
+        <input
+          class="botao-contato"
+          type="button"
+          value="Vamos conversar!"
+          onclick="window.open('https://wa.me/5511964330202', '_blank')"
+        />
       </nav>
     </header>
 
-    <main>
-      <section id="home">
-        <div>
-          <img  id="eu" src="img/eu.svg" alt="Foto do desenvolvedor" />
+    <section>
+      <div class="home">
+        <div class="home-content">
+          <div class="home-text">
+            <h1>Transformando ideias em experiências digitais.</h1>
+            <p>Desenvolvedor Front-end • Estudante de Engenharia de Software</p>
+            <p>
+              Gosto de criar interfaces modernas, responsivas e intuitivas,
+              sempre buscando escrever código limpo e evoluir a cada projeto.
+            </p>
+          </div>
+
+          <div class="home-buttons">
+            <input
+              class="botao-projetos"
+              type="button"
+              value="Meus projetos"
+              onclick="window.open('projects.html', '_blank')"
+            />
+            <button
+              class="baixar-cv"
+              type="button"
+              onclick="window.open('cv.pdf', '_blank')"
+            >
+              <img
+                id="download-button"
+                src="img/download.svg"
+                alt="Download CV"
+              />
+              Baixar CV
+            </button>
+          </div>
         </div>
-        <div>
-          <input id="botao-projetos" type="button" value="Meus projetos" onclick="window.open('projects.html', '_blank')" />
-          <input id="baixar-cv" type="button" value="Baixar CV" onclick="window.open('cv.pdf', '_blank')" />
+
+        <div class="home-photo">
+          <img src="img/eu.svg" alt="Foto de Carlos Eduardo" />
+
+          <div class="home-infos-wrapper">
+            <div class="home-infos">
+              <div class="icon-box icon-roxo">
+                <img class="home-icons" src="img/user.svg" alt="" />
+              </div>
+              <div class="info-text">
+                <span class="label">NOME</span>
+                <span class="valor">Carlos Eduardo</span>
+              </div>
+            </div>
+
+            <div class="home-infos">
+              <div class="icon-box icon-azul">
+                <img class="home-icons" src="img/calendario.svg" alt="" />
+              </div>
+              <div class="info-text">
+                <span class="label">IDADE</span>
+                <span class="valor">19 Anos</span>
+              </div>
+            </div>
+
+            <div class="home-infos">
+              <div class="icon-box icon-verde">
+                <img class="home-icons" src="img/local.svg" alt="" />
+              </div>
+              <div class="info-text">
+                <span class="label">LOCALIZAÇÃO</span>
+                <span class="valor">Guarulhos-SP</span>
+              </div>
+            </div>
+            <div class="home-infos">
+              <div class="icon-box icon-laranja status-icon">
+                <span class="status-dot"></span>
+              </div>
+              <div class="info-text">
+                <span class="label">STATUS</span>
+                <span class="valor">Disponível</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <script src="js/script.js"></script>
   </body>
