@@ -51,6 +51,7 @@ body::after {
 }
 
 header {
+  background: linear-gradient(180deg,rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0) 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -430,6 +431,18 @@ canvas {
   border: 1px solid #1f1f24;
   border-radius: 16px;
   padding: 28px;
+  height: 80%;
+}
+
+.about-card-skill {
+  background: #101014;
+  border: 1px solid #1f1f24;
+  border-radius: 16px;
+  padding: 28px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 80%;
 }
 
 .about-card h3 {
@@ -438,7 +451,6 @@ canvas {
   margin-bottom: 20px;
 }
 
-/* Timeline */
 .timeline {
   list-style: none;
   position: relative;
@@ -474,7 +486,6 @@ canvas {
   margin-top: 4px;
 }
 
-/* Checklist */
 .checklist {
   list-style: none;
 }
@@ -493,7 +504,6 @@ canvas {
   height: 16px;
 }
 
-/* Skills */
 .skill {
   margin-bottom: 18px;
 }
