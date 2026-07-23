@@ -46,12 +46,12 @@
               class="botao-projetos"
               type="button"
               value="Meus projetos"
-              onclick="window.open('projects.html', '_blank')"
+              onclick="location.href='#projects'"
             />
-            <button
+            <a
+              href="assets/Carlos_Eduardo_CV.pdf"
+              download="Carlos_Eduardo_CV.pdf"
               class="baixar-cv"
-              type="button"
-              onclick="window.open('cv.pdf', '_blank')"
             >
               <img
                 id="download-button"
@@ -59,7 +59,7 @@
                 alt="Download CV"
               />
               Baixar CV
-            </button>
+            </a>
           </div>
         </div>
 
@@ -174,7 +174,9 @@
                 <img src="img/check.svg" alt="" /> Desenvolvimento Front-end
               </li>
               <li><img src="img/check.svg" alt="" /> Interfaces Responsivas</li>
-              <li><img src="img/check.svg" alt="" /> Versionamento com Git/GitHub</li>
+              <li>
+                <img src="img/check.svg" alt="" /> Versionamento com Git/GitHub
+              </li>
               <li>
                 <img src="img/check.svg" alt="" /> Componentização de Interfaces
               </li>
@@ -185,25 +187,19 @@
           <div class="about-card-skill">
             <h3>Minhas Skills</h3>
             <div class="skill">
-              <div class="skill-label">
-                <span>HTML</span><span>90%</span>
-              </div>
+              <div class="skill-label"><span>HTML</span><span>90%</span></div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 90%"></div>
               </div>
             </div>
             <div class="skill">
-              <div class="skill-label">
-                <span>CSS</span><span>84%</span>
-              </div>
+              <div class="skill-label"><span>CSS</span><span>84%</span></div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 84%"></div>
               </div>
             </div>
             <div class="skill">
-              <div class="skill-label">
-                <span>React</span><span>49%</span>
-              </div>
+              <div class="skill-label"><span>React</span><span>49%</span></div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 49%"></div>
               </div>
@@ -217,17 +213,13 @@
               </div>
             </div>
             <div class="skill">
-              <div class="skill-label">
-                <span>Git</span><span>75%</span>
-              </div>
+              <div class="skill-label"><span>Git</span><span>75%</span></div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 75%"></div>
               </div>
             </div>
             <div class="skill">
-              <div class="skill-label">
-                <span>GitHub</span><span>85%</span>
-              </div>
+              <div class="skill-label"><span>GitHub</span><span>85%</span></div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 85%"></div>
               </div>
@@ -255,7 +247,9 @@
               </div>
             </div>
             <div class="skill">
-              <div class="skill-label"><span>APIs REST</span><span>52%</span></div>
+              <div class="skill-label">
+                <span>APIs REST</span><span>52%</span>
+              </div>
               <div class="skill-bar">
                 <div class="skill-fill" style="width: 52%"></div>
               </div>
@@ -264,6 +258,156 @@
         </div>
       </div>
     </section>
+
+    <section id="projects">
+  <div class="projects">
+    <div class="projects-header">
+      <h2>
+        Projetos que já
+        <span class="destaque">criei</span>
+      </h2>
+      <p>
+        Alguns dos projetos que venho desenvolvendo ao longo da minha
+        jornada de aprendizado, colocando em prática conhecimentos,
+        explorando novas tecnologias e evoluindo como desenvolvedor
+        front-end.
+      </p>
+    </div>
+
+    <div class="projects-carousel">
+      <button class="projects-arrow projects-arrow-left" id="projectsPrev" aria-label="Projeto anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card">
+          <div class="project-card-preview">
+            <img
+              class="project-card-image-logo"
+              src="img/logo.svg"
+              alt="Tela de Login"
+            />
+            <span class="project-card-number">02</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Meu portfólio</h3>
+            <p>
+              Portfólio pessoal desenvolvido para apresentar minha trajetória, habilidades e projetos de forma organizada. O projeto foi criado com foco em design moderno, responsividade e uma experiência de navegação intuitiva.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <a class="botao-projetos" href="#">Ver Projeto</a>
+              <a class="botao-secundario" href="https://github.com/CarlosEdu5/meuportfolio" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-preview">
+            <img
+              class="project-card-image"
+              src="img/trucks.jpg"
+              alt="Calculadora de IMC"
+            />
+            <span class="project-card-number">02</span>
+            <span class="project-real-client-badge">
+              <span class="badge-icon">
+                <img src="img/checkwhite.svg" alt="" />
+              </span>
+              Cliente real
+            </span>
+          </div>
+          <div class="project-card-body">
+            <h3>Calculadora de frete</h3>
+            <p>
+              Sistema desenvolvido para otimizar o cálculo de fretes de uma
+              transportadora, oferecendo uma interface prática e organizada
+              para agilizar os cálculos, reduzir erros e facilitar o controle
+              das informações no dia a dia. ........................................................
+            </p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <a class="botao-projetos" href="https://carlosedu5.github.io/imc/" target="_blank">Ver Projeto</a>
+              <a class="botao-secundario" href="https://github.com/CarlosEdu5/imc" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-preview">
+            <img
+              class="project-card-image"
+              src="img/imgcalculator.jpg"
+              alt="Calculadora de IMC"
+            />
+            <span class="project-card-number">03</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Calculadora de IMC</h3>
+            <p>
+              Aplicação web que permite calcular o Índice de Massa Corporal
+              (IMC) a partir da altura e do peso informados pelo usuário,
+              apresentando o resultado e sua respectiva classificação.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <a class="botao-projetos" href="https://carlosedu5.github.io/imc/" target="_blank">Ver Projeto</a>
+              <a class="botao-secundario" href="https://github.com/CarlosEdu5/imc" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-preview">
+            <img
+              class="project-card-image"
+              src="img/teladelogin.png"
+              alt="Tela de Login"
+            />
+            <span class="project-card-number">04</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Tela de Login 1</h3>
+            <p>
+              Projeto de uma tela de autenticação com design limpo e
+              responsivo, priorizando usabilidade, organização visual e boas
+              práticas de desenvolvimento front-end.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <a class="botao-projetos" href="https://carlosedu5.github.io/login/" target="_blank">Ver Projeto</a>
+              <a class="botao-secundario" href="https://github.com/CarlosEdu5/login" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="projects-arrow projects-arrow-right" id="projectsNext" aria-label="Próximo projeto">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
     <script src="js/script.js"></script>
   </body>
 </html>

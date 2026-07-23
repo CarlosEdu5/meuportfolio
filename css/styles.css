@@ -297,6 +297,7 @@ canvas {
   background: none;
   color: #fff;
   border: 1px solid #fff;
+  text-decoration: none;
   border-radius: 15px;
   padding: 12px 24px;
   font-size: 18px;
@@ -354,9 +355,15 @@ canvas {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.6); }
-  70% { box-shadow: 0 0 0 10px rgba(61, 220, 132, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.7); }
+  50% { transform: scale(1); box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(3, 8, 156, 0.496); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
 }
 
 .about {
@@ -528,4 +535,227 @@ canvas {
   height: 100%;
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
   border-radius: 4px;
+}
+
+.projects {
+  padding: 3%;
+  margin-top: -8%;
+}
+
+.projects-header {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-header h2 {
+  font-size: 3.2rem;
+  color: #fff;
+  margin: 10px 0;
+  line-height: 1.3;
+}
+
+.projects-header .destaque {
+  color: #3b82f6;
+}
+
+.projects-header p {
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 16px;
+}
+
+.projects-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.projects-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 4px 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.projects-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  background: #101014;
+  border: 1px solid #1f1f24;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+}
+
+.projects-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #1f1f24;
+  background: #101014;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  z-index: 2;
+}
+
+.projects-arrow:hover {
+  border-color: #3b82f6;
+  background: #16161c;
+}
+
+.project-card-preview {
+  position: relative;
+  height: 160px;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #101014 100%);
+  overflow: hidden;
+}
+
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-card-image-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: invert(100%);
+}
+
+.project-card-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-real-client-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #3b83f690;
+  color: #dffbe8;
+  border: 1px solid #3b82f6;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 #3b83f6;
+  animation: pulse-badge 3.8s infinite;
+}
+
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.project-real-client-badge img {
+  width: 20px;
+  height: 20px;
+}
+
+.project-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card-body h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.project-card-body p {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-tags span {
+  background: #1f1f24;
+  color: #d4d4d8;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.project-buttons .botao-projetos,
+.project-buttons .botao-secundario {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    flex: 0 0 100%;
+  }
 }

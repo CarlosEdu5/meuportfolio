@@ -121,3 +121,19 @@ function draw() {
       requestAnimationFrame(draw);
     }
     draw();
+
+    const projectsGrid = document.getElementById('projectsGrid');
+const projectsPrev = document.getElementById('projectsPrev');
+const projectsNext = document.getElementById('projectsNext');
+
+if (projectsGrid && projectsPrev && projectsNext) {
+  const scrollAmount = () => projectsGrid.querySelector('.project-card').offsetWidth + 24;
+
+  projectsPrev.addEventListener('click', () => {
+    projectsGrid.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+  });
+
+  projectsNext.addEventListener('click', () => {
+    projectsGrid.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+  });
+}
