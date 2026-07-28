@@ -366,6 +366,12 @@ canvas {
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
 }
 
+@keyframes pulse-badge-progress {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(156, 90, 3, 0.496); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
+}
+
 .about {
   padding: 3%;
 }
@@ -574,6 +580,7 @@ canvas {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%
 }
 
 .projects-grid {
@@ -601,6 +608,7 @@ canvas {
   flex: 0 0 calc((100% - 48px) / 3);
   scroll-snap-align: start;
   transition: transform 0.3s ease, border-color 0.3s ease;
+  width: 310px;
 }
 
 .project-card:hover {
@@ -702,6 +710,26 @@ canvas {
 .project-real-client-badge img {
   width: 20px;
   height: 20px;
+}
+
+.project-progress-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eb8c0890;
+  color: #dffbe8;
+  border: 1px solid #eb8c08;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 #eb8c0890;
+  animation: pulse-badge-progress 3.8s infinite;
 }
 
 .project-card-body {
