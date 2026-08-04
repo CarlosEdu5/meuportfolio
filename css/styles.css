@@ -325,12 +325,45 @@ canvas {
   .home {
     flex-direction: column;
     align-items: flex-start;
+    padding: 30px 20px 20px;
+    min-height: auto;
+  }
+
+  .home-content {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .home-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .botao-projetos,
+  .baixar-cv {
+    width: 100%;
+    justify-content: center;
   }
 
   .home-photo {
     max-width: 100%;
     width: 100%;
+    margin-right: 0;
     margin-top: 20px;
+  }
+
+  .home-photo img {
+    width: 100%;
+    max-height: none;
   }
 
   .home-infos-wrapper {
@@ -338,6 +371,30 @@ canvas {
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 20px;
+    gap: 12px;
+  }
+
+  .home-infos {
+    width: 100%;
+    min-height: auto;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .menu a {
+    font-size: 16px;
+  }
+
+  #botao-contato {
+    padding: 9px 16px;
+    font-size: 14px;
   }
 }
 
@@ -785,5 +842,124 @@ canvas {
 @media (max-width: 900px) {
   .project-card {
     flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    min-height: auto;
+  }
+
+  header {
+    padding: 12px 16px;
+    height: auto;
+  }
+
+  .menu {
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .about {
+    padding: 24px 16px;
+  }
+
+  .p-sobre {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .p-sobre p {
+    padding: 14px;
+    text-align: left;
+  }
+
+  .about-header h2 {
+    font-size: 2.4rem;
+  }
+
+  .about-card,
+  .about-card-skill {
+    padding: 22px;
+  }
+
+  .about-card-skill {
+    height: auto;
+    overflow: visible;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    padding: 24px 16px;
+    margin-top: 0;
+  }
+
+  .projects-header h2 {
+    font-size: 2.4rem;
+  }
+
+  .projects-header p {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .projects-carousel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projects-arrow {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+
+  .project-card {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .project-card-body {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  header {
+    padding: 16px 14px;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+  }
+
+  .home-buttons {
+    gap: 12px;
+  }
+
+  .home-infos-wrapper {
+    gap: 10px;
+  }
+
+  .project-tags {
+    gap: 6px;
+  }
+
+  .project-buttons {
+    flex-direction: column;
   }
 }
