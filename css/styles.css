@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -42,17 +46,20 @@ body::after {
   z-index: 0;
 }
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .logo {
   width: 90px;
-  position: absolute;
-  left: 40px;
-  bottom: -6px;
   filter: invert(100%);
 }
 
 header {
-  background: linear-gradient(180deg,rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0) 100%);
-  position: fixed;
+  background: rgba(5, 5, 15, 0.85);
+  backdrop-filter: blur(18px);
   top: 0;
   left: 0;
   right: 0;
@@ -60,31 +67,77 @@ header {
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 40px;
+  justify-content: space-between;
+  padding: 0 36px;
   z-index: 10;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .menu {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  width: 100%;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 26px;
   max-width: 1000px;
-  text-decoration: none;
+  margin: 0 auto;
 }
 
 .menu a {
-  color: #fff;
+  color: #dce0ff;
   text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s ease;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
-.menu a:hover {
-  color: #2b00b7;
-  transition: color 0.6s ease;
+.menu a:hover,
+.menu a:focus-visible {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2b00b7, #4b00ff);
+  transition: width 0.25s ease;
+}
+
+.menu a:hover::after,
+.menu a:focus-visible::after {
+  width: 100%;
+}
+
+#botao-contato {
+  background: linear-gradient(135deg, #2b00b7, #6e4bff);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(75, 0, 255, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+#botao-contato:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 38px rgba(75, 0, 255, 0.24);
+}
+
+#botao-contato:active {
+  transform: translateY(0);
+  opacity: 0.95;
 }
 
 canvas {
@@ -102,6 +155,7 @@ canvas {
   padding: 10px 20px;
   border-radius: 15px;
   font-size: 16px;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -120,7 +174,8 @@ canvas {
 .home {
   background: rgba(255, 255, 255, 0.034);
   width: 95%;
-  margin: 110px auto 0;
+  max-width: 1600px;
+  margin: 30px auto 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -130,7 +185,7 @@ canvas {
   position: relative;
   z-index: 2;
   overflow: visible;
-  min-height: 500px; 
+  min-height: 500px;
 }
 
 .home-content {
@@ -154,7 +209,7 @@ canvas {
 }
 
 .home-text h1 {
-  font-size: 50px;
+  font-size: clamp(28px, 4vw, 50px);
   line-height: 1.3;
 }
 
@@ -249,12 +304,13 @@ canvas {
 .info-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 2px;
+  min-width: 0;
 }
 
 .label {
-  display:flex;
+  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   font-size: 12px;
@@ -266,6 +322,7 @@ canvas {
   font-size: 19px;
   color: #ffffff;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .botao-projetos {
@@ -319,83 +376,6 @@ canvas {
 .baixar-cv:active {
   transform: translateY(-1px) scale(1.02);
   box-shadow: 0 4px 10px rgba(75, 0, 255, 0.25);
-}
-
-@media (max-width: 900px) {
-  .home {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px 20px 20px;
-    min-height: auto;
-  }
-
-  .home-content {
-    position: static;
-    transform: none;
-    top: auto;
-    left: auto;
-    width: 100%;
-    max-width: 100%;
-    padding-bottom: 20px;
-  }
-
-  .home-text h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .home-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .botao-projetos,
-  .baixar-cv {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .home-photo {
-    max-width: 100%;
-    width: 100%;
-    margin-right: 0;
-    margin-top: 20px;
-  }
-
-  .home-photo img {
-    width: 100%;
-    max-height: none;
-  }
-
-  .home-infos-wrapper {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    gap: 12px;
-  }
-
-  .home-infos {
-    width: 100%;
-    min-height: auto;
-  }
-
-  header {
-    padding: 0 20px;
-  }
-
-  .menu {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .menu a {
-    font-size: 16px;
-  }
-
-  #botao-contato {
-    padding: 9px 16px;
-    font-size: 14px;
-  }
 }
 
 .status-icon {
@@ -459,7 +439,7 @@ canvas {
 }
 
 .about-header h2 {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   color: #fff;
   margin: 10px 0;
   line-height: 1.3;
@@ -494,6 +474,7 @@ canvas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .about-card {
@@ -501,7 +482,7 @@ canvas {
   border: 1px solid #1f1f24;
   border-radius: 16px;
   padding: 28px;
-  height: 80%;
+  height: 100%;
 }
 
 .about-card-skill {
@@ -509,10 +490,14 @@ canvas {
   border: 1px solid #1f1f24;
   border-radius: 16px;
   padding: 28px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  height: 80%;
+  max-height: 420px;
+}
+
+.about-card-skill::-webkit-scrollbar {
+  display: none;
 }
 
 .about-card h3 {
@@ -602,7 +587,6 @@ canvas {
 
 .projects {
   padding: 3%;
-  margin-top: -8%;
 }
 
 .projects-header {
@@ -615,7 +599,7 @@ canvas {
 }
 
 .projects-header h2 {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   color: #fff;
   margin: 10px 0;
   line-height: 1.3;
@@ -662,10 +646,11 @@ canvas {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex: 0 0 calc((100% - 48px) / 3);
+  flex: 0 0 310px;
   scroll-snap-align: start;
   transition: transform 0.3s ease, border-color 0.3s ease;
   width: 310px;
+  min-height: 620px;
 }
 
 .project-card:hover {
@@ -793,7 +778,9 @@ canvas {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1;
+  min-height: 260px;
 }
 
 .project-card-body h3 {
@@ -839,25 +826,159 @@ canvas {
   font-size: 15px;
 }
 
-@media (max-width: 900px) {
+/* ============ TABLET (~1200px): tighten up the 3-col grids ============ */
+@media (max-width: 1200px) {
+  .about-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-card-skill {
+    grid-column: 1 / -1;
+    max-height: 360px;
+  }
+
   .project-card {
-    flex: 0 0 100%;
+    flex: 0 0 calc((100% - 24px) / 2);
+    width: auto;
   }
 }
 
+/* ============ TABLET (~1000px): p-sobre becomes single column ============ */
+@media (max-width: 1000px) {
+  .p-sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .p-sobre p {
+    text-align: left;
+  }
+}
+
+/* ============ TABLET/SMALL LAPTOP (~900px): stack the hero ============ */
+@media (max-width: 900px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .home {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px 20px;
+    min-height: auto;
+  }
+
+  .home-content {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .home-text h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .botao-projetos,
+  .baixar-cv {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-photo {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 20px;
+    align-self: stretch;
+  }
+
+  .home-photo img {
+    width: 100%;
+    max-height: none;
+  }
+
+  .home-infos-wrapper {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .home-infos {
+    width: calc(50% - 6px);
+    min-height: auto;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card-skill {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .project-card {
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+/* ============ MOBILE (~720px): stack the header/menu ============ */
 @media (max-width: 720px) {
   body {
     min-height: auto;
   }
 
   header {
-    padding: 12px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
     height: auto;
+    padding: 16px 16px 12px;
+    gap: 10px;
+    background: rgba(5, 5, 15, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .logo-wrap {
+    align-self: flex-start;
+  }
+
+  .logo {
+    width: 60px;
   }
 
   .menu {
-    gap: 0.8rem;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 0.8rem 1rem;
+    max-width: 100%;
+  }
+
+  .menu a {
+    font-size: 15px;
+  }
+
+  #botao-contato {
+    width: 100%;
+    max-width: 220px;
+    justify-content: center;
+  }
+
+  .home {
+    margin-top: 90px;
+    padding: 20px 0 0;
   }
 
   .about {
@@ -865,17 +986,11 @@ canvas {
   }
 
   .p-sobre {
-    grid-template-columns: 1fr;
     gap: 12px;
   }
 
   .p-sobre p {
     padding: 14px;
-    text-align: left;
-  }
-
-  .about-header h2 {
-    font-size: 2.4rem;
   }
 
   .about-card,
@@ -883,22 +998,9 @@ canvas {
     padding: 22px;
   }
 
-  .about-card-skill {
-    height: auto;
-    overflow: visible;
-  }
-
-  .about-cards {
-    grid-template-columns: 1fr;
-  }
-
   .projects {
     padding: 24px 16px;
     margin-top: 0;
-  }
-
-  .projects-header h2 {
-    font-size: 2.4rem;
   }
 
   .projects-header p {
@@ -922,16 +1024,12 @@ canvas {
     padding-bottom: 8px;
   }
 
-  .project-card {
-    width: 100%;
-    flex: 0 0 100%;
-  }
-
   .project-card-body {
     padding: 20px;
   }
 }
 
+/* ============ SMALL MOBILE (~600px) ============ */
 @media (max-width: 600px) {
   .menu {
     flex-direction: column;
@@ -941,6 +1039,10 @@ canvas {
 
   header {
     padding: 16px 14px;
+  }
+
+  .home {
+    margin-top: 80px;
   }
 
   .home-text h1 {
@@ -955,11 +1057,31 @@ canvas {
     gap: 10px;
   }
 
+  .home-infos {
+    width: 100%;
+  }
+
   .project-tags {
     gap: 6px;
   }
 
   .project-buttons {
     flex-direction: column;
+  }
+}
+
+/* ============ VERY SMALL MOBILE (~380px) ============ */
+@media (max-width: 380px) {
+  .home-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .home-text p {
+    font-size: 0.9rem;
+  }
+
+  #botao-contato {
+    padding: 9px 16px;
+    font-size: 14px;
   }
 }
